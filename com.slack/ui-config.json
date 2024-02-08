@@ -1,0 +1,15 @@
+{
+  "inputs": [{
+    "name": "site",
+    "type": "url",
+    "prompt": "Site",
+    "validate_as": "url",
+    "value": "https://slack.com",
+    "placeholder": "https://slack.com"
+  }, {
+    "name": "channel",
+    "type": "text",
+    "prompt": "Channel",
+    "placeholder": "lounge"
+  }]
+}
