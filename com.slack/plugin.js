@@ -93,7 +93,7 @@ function makeMessageFromBlocks(blocks) {
   for (const childElement of element.elements) {
     if (childElement.type == "text") {
       text += childElement.text
-    } else if (childElement.type == "emoji") {
+    } else if (childElement.type == "emoji" && childElement.unicode) {
       text += String.fromCodePoint(parseInt(childElement.unicode, 16))
     }
   }
