@@ -3,13 +3,13 @@ function identify() {
     const response = JSON.parse(text)
     setIdentifier(`${response.user}, ${response.team}`)
   })
-  .catch((requestError) => {
-    processError(requestError)
-  })
+  .catch(processError)
 }
 
 function load() {
-  loadAsync().then(processResults)
+  loadAsync()
+    .then(processResults)
+    .catch(processError)
 }
 
 async function loadAsync() {
