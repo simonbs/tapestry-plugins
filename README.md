@@ -13,3 +13,4 @@ The repository contains the followign plugins.
 |Name|Description|
 |-|-|
 |[com.slack](https://github.com/simonbs/tapestry-plugins/tree/main/com.slack)|Adds the most recent posts from a specific Slack channel.|
+|[com.youtube](https://github.com/simonbs/tapestry-plugins/tree/main/com.youtube)|Adds recent videos published by YouTube channels you are subscribed to.|
