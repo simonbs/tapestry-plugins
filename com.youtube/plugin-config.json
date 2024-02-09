@@ -1,13 +1,13 @@
 {
-	"id": "com.youtube4",
-	"display_name": "YouTube",
-	"oauth_authorize": "https://accounts.google.com/o/oauth2/v2/auth",
-	"oauth_token": "https://oauth2.googleapis.com/token",
-	"oauth_type": "code",
-	"oauth_code_key": "code",
-	"oauth_scope": "https://www.googleapis.com/auth/youtube&client_secret=",
-	"oauth_grant_type": "authorization_code",
-	"oauth_http_redirect": true,
-	"providesAttachments": true,
-	"check_interval": 1800
+  "id": "com.youtube",
+  "display_name": "YouTube",
+  "oauth_authorize": "https://accounts.google.com/o/oauth2/v2/auth",
+  "oauth_token": "https://oauth2.googleapis.com/token",
+  "oauth_type": "code",
+  "oauth_code_key": "code",
+  "oauth_scope": "https://www.googleapis.com/auth/youtube&prompt=consent&access_type=offline&client_secret=",
+  "oauth_grant_type": "authorization_code",
+  "oauth_http_redirect": true,
+  "providesAttachments": true,
+  "check_interval": 1800
 }
