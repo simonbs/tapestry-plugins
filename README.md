@@ -12,4 +12,4 @@ The repository contains the followign plugins.
 
 |Name|Description|
 |-|-|
-|com.slack|Adds the most recent posts from a specific Slack channel.|
+|[com.slack](https://github.com/simonbs/tapestry-plugins/tree/main/com.slack)|Adds the most recent posts from a specific Slack channel.|
