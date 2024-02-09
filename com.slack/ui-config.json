@@ -7,9 +7,9 @@
     "value": "https://slack.com",
     "placeholder": "https://slack.com"
   }, {
-    "name": "channel",
+    "name": "channels",
     "type": "text",
-    "prompt": "Channel",
-    "placeholder": "lounge"
+    "prompt": "Channels",
+    "placeholder": "lounge, random, photos"
   }]
 }

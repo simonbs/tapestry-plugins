@@ -13,8 +13,8 @@ function load() {
 }
 
 async function loadAsync() {
-  const channelId = await getChannelId()
-  const messages = await getMessages(channelId)
+  const channelIds = await getChannelIds()
+  const messages = (await Promise.all(channelIds.map(getMessages))).flat()
   return messages.filter(e => e.type === "message").map(message => {
     const date = new Date(parseInt(message.ts) * 1000)
     const body = makeMessageFromBlocks(message.blocks) || message.text
@@ -36,11 +36,15 @@ async function loadAsync() {
   })
 }
 
-async function getChannelId() {
-  const channelName = channel.replace(/^#/, "").toLowerCase()
+async function getChannelIds() {
+  const channelNames = channels
+    .split(/,| /)
+    .map(e => e.replace(/^#/, "").trim().toLowerCase())
   const text = await sendRequest(`${site}/api/conversations.list`)
   const obj = JSON.parse(text)
-  return obj.channels.find(e => e.name == channelName).id
+  return obj.channels
+    .filter(e => channelNames.includes(e.name))
+    .map(e => e.id)
 }
 
 async function getMessages(channelId) {
