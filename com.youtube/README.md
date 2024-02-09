@@ -7,6 +7,8 @@ Adds recent videos published by YouTube channels you are subscribed to.
 >
 > Furthermore, Tapestry does not seem able to keep the session alive as YouTube does not provide a refresh token.
 
+<img src="screenshot.png" width="650" />
+
 ## Installation
 
 The plugin requires you to authenticate with your YouTube account using an OAuth flow.
