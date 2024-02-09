@@ -3,9 +3,7 @@
 Adds recent videos published by YouTube channels you are subscribed to.
 
 > [!WARNING]  
-> This plugin is not stable and relies on a hack where an empty `client_secret` query parameter is injected into the URLs Tapestry call when performing the OAuth flow. This causes the OAuth flow to fail sometimes. If that happens, you need to try again.
->
-> Furthermore, Tapestry does not seem able to keep the session alive as YouTube does not provide a refresh token.
+> The OAuth flow relies on a hack where an empty `client_secret` query parameter is injected into the URLs Tapestry calls when performing the OAuth flow, and as a result, the flow is unstable and will sometimes fail. If that happens, you need to try again.
 
 ## Installation
 
