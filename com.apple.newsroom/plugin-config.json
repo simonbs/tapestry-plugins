@@ -1,0 +1,6 @@
+{
+  "id": "com.apple.newsroom",
+  "display_name": "Apple Newsroom",
+  "providesAttachments": true,
+  "check_interval": 300
+}
