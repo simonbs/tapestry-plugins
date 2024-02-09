@@ -14,7 +14,7 @@ function load() {
 
 async function loadAsync() {
   const channelIds = await getChannelIds()
-  const messages = (await Promise.all(channelIds.map(getMessages))).flat()
+  const messages = await getMessageInChannels(channelIds)
   return messages.filter(e => e.type === "message").map(message => {
     const date = new Date(parseInt(message.ts) * 1000)
     const body = makeMessageFromBlocks(message.blocks) || message.text
@@ -47,7 +47,13 @@ async function getChannelIds() {
     .map(e => e.id)
 }
 
-async function getMessages(channelId) {
+async function getMessageInChannels(channelIds) {
+  return (await Promise.all(channelIds.map(getMessageInChannel)))
+    .flat()
+    .sort((a, b) => a.ts < b.ts)
+}
+
+async function getMessageInChannel(channelId) {
   const text = await sendRequest(
     `${site}/api/conversations.history?channel=${channelId}&limit=20&include_all_metadata=1`
   )
