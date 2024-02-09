@@ -1,6 +1,3 @@
-
-// com.slack
-
 function identify() {
   sendRequest(site + "/api/auth.test").then(text => {
     const response = JSON.parse(text)
