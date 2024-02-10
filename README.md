@@ -8,7 +8,7 @@ The official documentation for the JavaScript-based API used to build plugins fo
 
 ### 🔌 Plugins
 
-The repository contains the followign plugins.
+The repository contains the following plugins.
 
 |Name|Description|
 |-|-|
