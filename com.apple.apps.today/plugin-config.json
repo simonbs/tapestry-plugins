@@ -1,0 +1,6 @@
+{
+  "id": "com.apple.apps.today1",
+  "display_name": "App Store Today",
+  "providesAttachments": true,
+  "check_interval": 300
+}

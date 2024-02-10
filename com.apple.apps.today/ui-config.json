@@ -1,0 +1,15 @@
+{
+  "inputs": [{
+    "name": "countryCode",
+    "type": "string",
+    "prompt": "Country Code",
+    "value": "us",
+    "placeholder": "us"
+  }, {
+    "name": "language",
+    "type": "string",
+    "prompt": "Language",
+    "value": "en-us",
+    "placeholder": "en-us"
+  }]
+}
