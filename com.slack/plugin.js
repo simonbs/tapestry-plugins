@@ -22,7 +22,7 @@ async function loadAsync() {
     const host = message.permalink.split("/")[2]
     const creatorURI = `https://${host}/team/${message.user_id}`
     const creator = Creator.createWithUriName(creatorURI, message.user.display_name)
-    creator.avatar = message.user.image_original
+    creator.avatar = message.user.image_192
     post.creator = creator
     if (message.files) {
       post.attachments = message.files.slice(0, 4).map(file => {
@@ -99,15 +99,27 @@ function makeMessageFromBlocks(blocks) {
   if (!element.elements) {
     return null
   }
-  var text = ""
+  var text = "<p>"
   for (const childElement of element.elements) {
     if (childElement.type == "text") {
-      text += childElement.text
-    } else if (childElement.type == "link") {
-      text += childElement.text
-    } else if (childElement.type == "emoji" && childElement.unicode) {
+      if (childElement.style && childElement.style.bold) {
+      	text += `<strong>${childElement.text}</strong>`
+      }
+      else if (childElement.style && childElement.style.italic) {
+      	text += `<em>${childElement.text}</em>`
+      }
+      else {
+      	text += childElement.text
+      }
+    } else if (childElement.type == "emoji") {
       text += String.fromCodePoint(parseInt(childElement.unicode, 16))
+    } else if (childElement.type == "link") {
+      text += `<a href="${childElement.url}">${childElement.url}</a>`
+    } else {
+      // TODO: A "user" type includes a user_id that needs to be retrieved and linkified.
+      console.log(`ignored childElement.type: ${childElement.type}`)
     }
   }
+  text += "</p>"
   return text
 }
