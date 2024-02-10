@@ -5,7 +5,7 @@
   "oauth_token": "https://slack.com/api/oauth.access",
   "oauth_type": "code",
   "oauth_code_key": "code",
-  "oauth_scope": "channels:history+channels:read+users.profile:read+files:read",
+  "oauth_scope": "channels:history+channels:read+users.profile:read+files:read+team:read",
   "oauth_grant_type": "authorization_code",
   "oauth_http_redirect": true,
   "providesAttachments": true,
