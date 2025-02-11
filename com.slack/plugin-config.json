@@ -1,6 +1,10 @@
 {
   "id": "com.slack",
   "display_name": "Slack",
+  "default_color": "orange",
+  "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/com.slack/icon.png?raw=true",
+  "site": "https://slack.com",
+  "site_placeholder": "https://slack.com",
   "oauth_authorize": "https://slack.com/oauth/authorize",
   "oauth_token": "https://slack.com/api/oauth.access",
   "oauth_type": "code",
@@ -8,6 +12,9 @@
   "oauth_scope": "channels:history+channels:read+users.profile:read+files:read+team:read",
   "oauth_grant_type": "authorization_code",
   "oauth_http_redirect": true,
-  "providesAttachments": true,
+  "needs_api_keys": true,
+  "provides_attachments": true,
+  "needs_verification": true,
+  "verify_variables": true,
   "check_interval": 300
 }

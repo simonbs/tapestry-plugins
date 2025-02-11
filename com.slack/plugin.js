@@ -1,7 +1,7 @@
-function identify() {
+function verify() {
   sendRequest(site + "/api/auth.test").then(text => {
     const response = JSON.parse(text)
-    setIdentifier(`${response.user}, ${response.team}`)
+    processVerification({ displayName: response.team })
   })
   .catch(processError)
 }
@@ -21,17 +21,18 @@ async function loadAsync() {
       .map(async message => {
         const date = new Date(parseInt(message.ts) * 1000)
         const body = await stringFromBlocks(message.blocks)
-        const post = Post.createWithUriDateContent(message.permalink, date, body)
+        const post = Item.createWithUriDate(message.permalink, date)
+        post.body = body
         const host = message.permalink.split("/")[2]
         const creatorURI = `https://${host}/team/${message.user_id}`
-        const creator = Creator.createWithUriName(creatorURI, message.user.display_name)
+        const creator = Identity.createWithName(message.user.display_name)
+        creator.uri = creatorURI
         creator.avatar = message.user.image_192
         post.creator = creator
         if (message.files) {
           post.attachments = message.files.slice(0, 4).map(file => {
-            const attachment = Attachment.createWithMedia(file.url_private)
+            const attachment = MediaAttachment.createWithUrl(file.url_private_download)
             attachment.text = file.title
-            attachment.thumbnail = file.thumb_360
             return attachment
           })
         }
@@ -52,7 +53,8 @@ async function getConfiguredChannelIds() {
   const channelNames = channels
     .split(/,| /)
     .map(e => e.replace(/^#/, "").trim().toLowerCase())
-  return (await getChannels())
+  const theChannels = await getChannels()
+  return theChannels
     .filter(e => channelNames.includes(e.name))
     .map(e => e.id)
 }
@@ -212,7 +214,9 @@ async function stringFromTextElement(element) {
   } else if (element.type == "user") {
     const team = await getTeamInfo()
     const user = await getUserProfile(element.user_id)
-    return `<a href="${team.url}/team/${element.user_id}">@${user.display_name}</a>`
+    const userName = [user.display_name, user.real_name, element.user_id]
+      .filter(e => e != null && e.length > 0)[0]
+    return `<a href="${team.url}/team/${element.user_id}">@${userName}</a>`
   } else if (element.type == "channel") {
     const team = await getTeamInfo()
     const channel = await getChannel(element.channel_id)
