@@ -1,6 +1,8 @@
 {
-  "id": "com.apple.apps.today1",
+  "id": "com.apple.apps.today",
   "display_name": "App Store Today",
-  "providesAttachments": true,
-  "check_interval": 300
+  "default_color": "blue",
+  "provides_attachments": true,
+  "check_interval": 300,
+  "verify_variables": true
 }

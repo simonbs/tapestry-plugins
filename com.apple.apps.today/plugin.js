@@ -13,31 +13,41 @@ async function loadAsync() {
   if (!bearer) {
     return []
   }
-  console.log(bearer)
-  const stories = await getStoriesToday(bearer, countryCode, language)
-  return stories.filter(story => story.date).map(story => {
-    let body = `<p>${story.title}</p>`
-    if (story.subtitle) {
-      body += `<p>${story.subtitle}</p>`
-    }
-    const post = Post.createWithUriDateContent(story.url, story.date, body)
-    const creator = Creator.createWithUriName("https://www.apple.com/app-store/", "App Store Editorial")
-    creator.avatar = "https://www.apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
-    post.creator = creator
-    let attachments = []
-    if (story.video) {
-      attachments.push(Attachment.createWithMedia(story.video))
-    } else if (story.image) {
-      attachments.push(Attachment.createWithMedia(story.image))
-    }
-    post.attachments = attachments
-    return post
-  })
+  let i = 0
+  const stories = await getStoriesToday(bearer, storefront, language)
+  return stories
+    .filter(story => story.date)
+    .map(e => {
+      // Stabilize order.
+      const date = new Date(e.date.getTime() + i * 1000)
+      i += 1
+      return {...e, date } 
+    })
+    .map(story => {
+      let body = `<p>${story.title}</p>`
+      if (story.subtitle) {
+        body += `<p>${story.subtitle}</p>`
+      }
+      const item = Item.createWithUriDate(story.url, story.date)
+      item.body = body
+      const creator = Identity.createWithName("App Store Editorial")
+      creator.uri = "https://www.apple.com/app-store/"
+      creator.avatar = "https://www.apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
+      item.creator = creator
+      let attachments = []
+      if (story.video) {
+        attachments.push(MediaAttachment.createWithUrl(story.video))
+      } else if (story.image) {
+        attachments.push(MediaAttachment.createWithUrl(story.image))
+      }
+      item.attachments = attachments
+      return item
+    })
 }
 
 async function getBearer() {
   const html = await sendRequest(`https://www.apple.com/app-store/`)
-  const regex = /<meta property="apple-app-token" content="([A-Za-z0-9.-]+)"\/>/g
+  const regex = /<meta property="apple-app-token" content="([A-Za-z0-9.-_]+)"\/>/g
   const matches = regex.exec(html)
   if (matches.length < 2) {
     return null

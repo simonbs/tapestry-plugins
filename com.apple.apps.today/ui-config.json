@@ -1,13 +1,13 @@
 {
   "inputs": [{
-    "name": "countryCode",
-    "type": "string",
-    "prompt": "Country Code",
+    "name": "storefront",
+    "type": "text",
+    "prompt": "Storefront",
     "value": "us",
     "placeholder": "us"
   }, {
     "name": "language",
-    "type": "string",
+    "type": "text",
     "prompt": "Language",
     "value": "en-us",
     "placeholder": "en-us"
