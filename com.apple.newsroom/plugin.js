@@ -13,16 +13,16 @@ async function loadAsync() {
   const obj = xmlParse(text)
   return obj.feed.entry.map(entry => {
     const date = new Date(entry.updated)
-    const content = `${entry.title}<br/><br/>${entry.content}`
-    const authorLink = obj.feed.id
-    const postLink = entry.id
-    const creator = Creator.createWithUriName(authorLink, entry.author.name)
+    const creator = Identity.createWithName(entry.author.name)
+    creator.uri = obj.feed.id
     creator.avatar = "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg"
-    const post = Post.createWithUriDateContent(postLink, date, content)
+    const post = Item.createWithUriDate(entry.id, date)
+    post.title = entry.title
+    post.body = entry.content
     post.creator = creator
     const imageLink = findImageLink(entry)
     if (imageLink) {
-      const attachment = Attachment.createWithMedia(imageLink.href)
+      const attachment = MediaAttachment.createWithUrl(imageLink.href)
       attachment.text = imageLink.title
       post.attachments = [attachment]
     }
