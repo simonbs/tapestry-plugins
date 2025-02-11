@@ -1,16 +1,9 @@
 {
   "inputs": [{
-    "name": "site",
-    "type": "url",
-    "prompt": "Site",
-    "validate_as": "url",
-    "value": "https://youtube.com",
-    "placeholder": "https://youtube.com"
-  }, {
     "name": "varVideoCount",
-    "type": "string",
+    "type": "choices",
     "prompt": "Number of Videos",
-    "value": "10",
-    "placeholder": "10"
+    "value": "25",
+    "choices": "5, 10, 25, 50, 100"
   }]
 }

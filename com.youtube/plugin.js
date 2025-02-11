@@ -1,12 +1,3 @@
-function getVideoCount() {
-  const n = parseInt(varVideoCount)
-  if (!isNaN(n)) {
-    return n
-  } else {
-    return 10
-  }
-}
-
 function verify() {
   sendRequest(
     "https://www.googleapis.com/youtube/v3/channels"
@@ -27,7 +18,7 @@ function load() {
 async function loadAsync() {
   const channels = await getSubscribedChannels()
   const videos = await getVideosInChannels(channels)
-  return videos.slice(0, getVideoCount()).map(video => {
+  return videos.slice(0, varVideoCount).map(video => {
     const author = Identity.createWithName(video.channel.title)
     author.uri = video.channel.permalink
     author.avatar = video.channel.thumbnail
