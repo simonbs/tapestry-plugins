@@ -16,7 +16,7 @@ Follow the instructions below to create a Google Cloud app and obtain the client
 1. Open [console.cloud.google.com/apis](https://console.cloud.google.com/apis) and create a new project.
 2. Once your project is created, select "OAuth consent screen" in the sidebar to configure the consent screen for your app. Select “External” when asked to about the user type. When asked to add test users, add your own email.
 5. Enable the YouTube API in your newly created project by navigating to [console.cloud.google.com/apis/library](https://console.cloud.google.com/apis/library) then select "YouTube Data API v3" and enable it.
-3. Navigate to [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client by selecting "Create credentials" followed by "OAuth client ID". Select "Web application" for the application type and add `https://iconfactory.com/muxer` as a redirect URI.
+3. Navigate to [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client by selecting "Create credentials" followed by "OAuth client ID". Select "Web application" for the application type and add [https://iconfactory.com/tapestry-oauth](https://iconfactory.com/tapestry-oauth) as a redirect URI.
 4. Copy the client ID and client secret and add it to Tapestry.
 
 ## Configuration
