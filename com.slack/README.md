@@ -2,7 +2,7 @@
 
 Adds the most recent posts from a specific Slack channel.
 
-> [!WARNING]
+> [!IMPORTANT]
 > Images in messages do not currently load as it requires authentication which Tapestry doesn't support at the time of writing this.
 
 ## Installation
