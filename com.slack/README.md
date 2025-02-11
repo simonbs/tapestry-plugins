@@ -2,6 +2,9 @@
 
 Adds the most recent posts from a specific Slack channel.
 
+> [!WARNING]
+> Images in messages do not currently load as it requires authentication which Tapestry doesn't support at the time of writing this.
+
 ## Installation
 
 The plugin requires you to authenticate with your Slack account using an OAuth flow.
