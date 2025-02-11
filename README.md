@@ -1,6 +1,6 @@
 # Tapestry Plugins
 
-Plugins for the [Tapestry app](https://www.kickstarter.com/projects/iconfactory/project-tapestry).
+Plugins for the [Tapestry](https://usetapestry.com) by the [Iconfactory](https://iconfactory.com).
 
 ### 📖 Documentation
 

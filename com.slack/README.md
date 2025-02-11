@@ -11,7 +11,7 @@ Follow the instructions below to create a Slack app and obtain the client ID and
 1. Open [api.slack.com/apps](https://api.slack.com/apps)
 2. Select "Create New App" followed by "From scratch".
 4. Enter a name for your app, e.g. "Tapestry", and select the workspace to install the app in and then select "Create App".
-5. Add a redirect URL by select "OAuth & Permissions" in the sidebar followed by "Add New Redirect URL", set the URL to [https://iconfactory.com/muxer](https://iconfactory.com/muxer), and save the changes.
+5. Add a redirect URL by select "OAuth & Permissions" in the sidebar followed by "Add New Redirect URL", set the URL to [https://iconfactory.com/tapestry-oauth](https://iconfactory.com/tapestry-oauth), and save the changes.
 6. Scroll down to "Scopes" and add the following scopes under "User Token Scopes": `channels:history`, `channels:read`, and `users.profile:read`.
 7. Install the app by selecting "Basic Information" in the sidebar, expand the "Install your app" section, and select "Install to Workspace".
 8. Copy the client ID and client secret under "Basic Information" and enter it into Tapestry.
