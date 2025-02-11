@@ -1,6 +1,9 @@
 {
   "id": "com.youtube",
   "display_name": "YouTube",
+  "site": "https://www.googleapis.com",
+  "site_placeholder": "https://www.googleapis.com",
+  "item_style": "post",
   "oauth_authorize": "https://accounts.google.com/o/oauth2/v2/auth",
   "oauth_token": "https://oauth2.googleapis.com/token",
   "oauth_type": "code",
@@ -8,6 +11,9 @@
   "oauth_scope": "https://www.googleapis.com/auth/youtube&prompt=consent&access_type=offline&client_secret=",
   "oauth_grant_type": "authorization_code",
   "oauth_http_redirect": true,
-  "providesAttachments": true,
+  "needs_api_keys": true,
+  "provides_attachments": true,
+  "needs_verification": true,
+  "verify_variables": true,
   "check_interval": 1800
 }

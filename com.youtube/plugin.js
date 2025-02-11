@@ -7,18 +7,13 @@ function getVideoCount() {
   }
 }
 
-function identify() {
+function verify() {
   sendRequest(
     "https://www.googleapis.com/youtube/v3/channels"
     + "?part=snippet"
     + "&mine=true"
-  ).then(text => {
-    const response = JSON.parse(text)
-    if (response.items && response.items.length > 0) {
-      setIdentifier(`${response.items[0].snippet.title}`)
-    } else {
-      setIdentifier(null)
-    }
+  ).then(_text => {
+    processVerification({ displayName: "YouTube" })
   })
   .catch(processError)
 }
@@ -33,16 +28,17 @@ async function loadAsync() {
   const channels = await getSubscribedChannels()
   const videos = await getVideosInChannels(channels)
   return videos.slice(0, getVideoCount()).map(video => {
-    let content = `${video.title}`
-    if (video.description && video.description.length > 0) {
-      content += `<br/><br/>${video.description.replace(/\n/g, "<br/>")}`
-    } 
-    const creator = Creator.createWithUriName(video.channel.permalink, video.channel.title)
-    creator.avatar = video.channel.thumbnail
-    const attachment = Attachment.createWithMedia(video.image)
+    const author = Identity.createWithName(video.channel.title)
+    author.uri = video.channel.permalink
+    author.avatar = video.channel.thumbnail
+    const attachment = MediaAttachment.createWithUrl(video.image)
     attachment.thumbnail = video.thumbnail
-    const post = Post.createWithUriDateContent(video.permalink, video.publishedAt, content)
-    post.creator = creator
+    const post = Item.createWithUriDate(video.permalink, video.publishedAt)
+    post.title = video.title
+    if (video.description && video.description.length > 0) {
+      post.body = video.description.replace(/\n/g, "<br/>")
+    } 
+    post.author = author
     post.attachments = [attachment]
     return post
   })

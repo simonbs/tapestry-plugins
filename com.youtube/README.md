@@ -25,5 +25,5 @@ The plugin can be configured with the following variables.
 
 |Variable|Description|Example|
 |-|-|-|
-|Site|Set this to https://youtube.com|https://youtube.com|
+|Site|Set this to https://www.googleapis.com|https://www.googleapis.com|
 |Number of channels|Set this to the number of channels to be added to your feed.|10|
