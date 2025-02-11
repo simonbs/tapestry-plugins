@@ -24,11 +24,10 @@ async function loadAsync() {
         const post = Item.createWithUriDate(message.permalink, date)
         post.body = body
         const host = message.permalink.split("/")[2]
-        const creatorURI = `https://${host}/team/${message.user_id}`
-        const creator = Identity.createWithName(message.user.display_name)
-        creator.uri = creatorURI
-        creator.avatar = message.user.image_192
-        post.creator = creator
+        const author = Identity.createWithName(message.user.display_name)
+        author.uri = `https://${host}/team/${message.user_id}`
+        author.avatar = message.user.image_192
+        post.author = author
         if (message.files) {
           post.attachments = message.files.slice(0, 4).map(file => {
             const attachment = MediaAttachment.createWithUrl(file.url_private_download)

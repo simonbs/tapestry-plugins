@@ -5,6 +5,7 @@
   "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/com.slack/icon.png?raw=true",
   "site": "https://slack.com",
   "site_placeholder": "https://slack.com",
+  "item_style": "post",
   "oauth_authorize": "https://slack.com/oauth/authorize",
   "oauth_token": "https://slack.com/api/oauth.access",
   "oauth_type": "code",
