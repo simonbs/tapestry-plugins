@@ -2,9 +2,6 @@
 
 Adds recent videos published by YouTube channels you are subscribed to.
 
-> [!WARNING]  
-> The OAuth flow relies on a hack where an empty `client_secret` query parameter is injected into the URLs Tapestry calls when performing the OAuth flow, and as a result, the flow is unstable and will sometimes fail. If that happens, you need to try again.
-
 <img src="screenshot.png" width="650" />
 
 ## Installation
