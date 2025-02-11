@@ -1,6 +1,7 @@
 {
   "id": "com.youtube",
   "display_name": "YouTube",
+  "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/com.youtube/icon.png?raw=true",
   "site": "https://www.googleapis.com",
   "site_placeholder": "https://www.googleapis.com",
   "item_style": "post",
