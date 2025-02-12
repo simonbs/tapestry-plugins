@@ -3,7 +3,7 @@ function verify() {
     return validateStorefrontAndLanguage(bearer, varStorefront, varLanguage)
   }).then(result => {
     if (result.success) {
-      processVerification({ displayName: result.storefrontDisplayName })
+      processVerification()
     } else {
       processError(result.error)
     }
