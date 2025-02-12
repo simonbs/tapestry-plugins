@@ -28,8 +28,8 @@ async function loadAsync() {
       item.title = story.title
       item.body = story.subtitle
       const creator = Identity.createWithName("App Store Editorial")
-      creator.uri = "https://www.apple.com/app-store/"
-      creator.avatar = "https://www.apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
+      creator.uri = "https://apple.com/app-store/"
+      creator.avatar = "https://apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
       item.creator = creator
       let attachments = []
       if (story.video) {
@@ -43,7 +43,7 @@ async function loadAsync() {
 }
 
 async function getBearer() {
-  const html = await sendRequest(`https://www.apple.com/app-store/`)
+  const html = await sendRequest(`https://apple.com/app-store/`)
   const regex = /<meta property="apple-app-token" content="([A-Za-z0-9.-_]+)"\/>/g
   const matches = regex.exec(html)
   if (matches.length < 2) {
@@ -59,7 +59,7 @@ async function getStoriesToday(bearer, storefront, language) {
     + "&additionalPlatforms=ipad"
     + "&sparseLimit=42"
   const text = await sendRequest(url, "GET", null, {
-    "Origin": "https://www.apple.com",
+    "Origin": "https://apple.com",
     "Authorization": `Bearer ${bearer}`
   })
   const json = JSON.parse(text)

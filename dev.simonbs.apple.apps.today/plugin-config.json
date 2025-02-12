@@ -3,6 +3,8 @@
   "display_name": "App Store Today",
   "default_color": "blue",
   "icon": "https://raw.githubusercontent.com/simonbs/tapestry-plugins/refs/heads/main/dev.simonbs.apple.apps.today/icon.png",
+  "site": "https://apple.com/app-store/",
+  "site_placeholder": "https://apple.com/app-store/",
   "provides_attachments": true,
   "check_interval": 300,
   "verify_variables": true
