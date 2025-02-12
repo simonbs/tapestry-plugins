@@ -2,6 +2,7 @@
   "id": "dev.simonbs.youtube",
   "display_name": "YouTube",
   "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/dev.simonbs.youtube/icon.png?raw=true",
+  "default_color": "coral",
   "site": "https://www.googleapis.com",
   "site_placeholder": "https://www.googleapis.com",
   "item_style": "post",
