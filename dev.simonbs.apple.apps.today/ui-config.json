@@ -9,7 +9,7 @@
     "name": "varLanguage",
     "type": "choices",
     "prompt": "Language",
-    "value": "en-GB",
+    "value": "en-US",
     "choices": "ar, ca, cs, da, de-CH, de-DE, el, en-AU, en-CA, en-GB, en-US, es-ES, es-MX, fi, fr-CA, fr-FR, he, hi, hr, hu, id, it, ja, ko, ms, nb, nl, pl, pt-BR, pt-PT, ro, ru, sk, sv, th, tr, uk, vi, zh-Hans-CN, zh-Hant-HK, zh-Hant-TW"
   }]
 }
