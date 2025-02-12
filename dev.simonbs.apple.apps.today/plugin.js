@@ -1,5 +1,14 @@
-function identify() {
-  setIdentifier(null)
+function verify() {
+  getBearer().then(bearer => {
+    return validateStorefrontAndLanguage(bearer, varStorefront, varLanguage)
+  }).then(result => {
+    if (result.success) {
+      processVerification({ displayName: result.storefrontDisplayName })
+    } else {
+      processError(result.error)
+    }
+  })
+  .catch(processError)
 }
 
 function load() {
@@ -12,6 +21,12 @@ async function loadAsync() {
   const bearer = await getBearer()
   if (!bearer) {
     return []
+  }
+  const { success, error, storefront, language } = await validateStorefrontAndLanguage(
+    bearer, varStorefront, varLanguage
+  )
+  if (!success) {
+    throw new Error(error)
   }
   let i = 0
   const stories = await getStoriesToday(bearer, storefront, language)
@@ -52,6 +67,41 @@ async function getBearer() {
     return null
   }
   return matches[1]
+}
+
+async function validateStorefrontAndLanguage(bearer, storefront, language) {
+  const storefronts = await getStorefronts(bearer)
+  const storefrontMatch = storefronts.find(e => {
+    return e.attributes.name.toLowerCase() == storefront.toLowerCase()
+  })
+  if (!storefrontMatch) {
+    const error = `Storefront not supported: ${storefront}`
+    return { success: false, error }
+  }
+  const defaultLanguage = storefrontMatch.attributes.defaultLanguageTag
+  if (!language || language.length == 0) {
+    return {
+      success: true,
+      storefront: storefrontMatch.id,
+      storefrontDisplayName: storefrontMatch.attributes.name,
+      language: defaultLanguage
+    }
+  }
+  const supportedLanguages = storefrontMatch.attributes.supportedLanguageTags
+  const languageMatch = supportedLanguages.find(e => {
+    return e.toLowerCase() == language.toLowerCase()
+  })
+  if (!languageMatch) {
+    const error = `${language} not supported for ${storefrontMatch.attributes.name} storefront. `
+    + `Supported languages: ${supportedLanguages.join(", ")}`
+    return { success: false, error }
+  }
+  return {
+    success: true,
+    storefrontDisplayName: storefrontMatch.attributes.name,
+    storefront: storefrontMatch.id,
+    language: languageMatch
+  }
 }
 
 async function getStoriesToday(bearer, storefront, language) {
@@ -103,6 +153,18 @@ async function getStoriesToday(bearer, storefront, language) {
       return mappedItem
     })
   })
+}
+
+async function getStorefronts(bearer) {
+  const url = "https://amp-api.apps.apple.com/v1/storefronts"
+  + "?platform=iphone"
+  + "&additionalPlatforms=ipad,appletv,mac,watch"
+  const text = await sendRequest(url, "GET", null, {
+    "Origin": "https://apple.com",
+    "Authorization": `Bearer ${bearer}`
+  })
+  const obj = JSON.parse(text)
+  return obj.data
 }
 
 function getImage(item) {

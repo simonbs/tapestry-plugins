@@ -6,6 +6,6 @@
   "site": "https://apple.com/app-store/",
   "site_placeholder": "https://apple.com/app-store/",
   "provides_attachments": true,
-  "check_interval": 300,
-  "verify_variables": true
+  "needs_verification": true,
+  "check_interval": 3600
 }

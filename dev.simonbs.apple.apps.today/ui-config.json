@@ -1,15 +1,15 @@
 {
   "inputs": [{
-    "name": "storefront",
-    "type": "text",
+    "name": "varStorefront",
+    "type": "choices",
     "prompt": "Storefront",
-    "value": "us",
-    "placeholder": "us"
+    "value": "United States",
+    "choices": "Afghanistan, Albania, Algeria, Angola, Anguilla, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Barbados, Belarus, Belgium, Belize, Benin, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, British Virgin Islands, Brunei Darussalam, Bulgaria, Burkina Faso, Cambodia, Cameroon, Canada, Cape Verde, Cayman Islands, Chad, Chile, China mainland, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Côte d'Ivoire, Democratic Republic of the Congo, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Eswatini, Fiji, Finland, France, Gabon, Gambia, Georgia, Germany, Ghana, Greece, Grenada, Guatemala, Guinea-Bissau, Guyana, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea, Republic of, Kosovo, Kuwait, Kyrgyzstan, Lao People's Democratic Republic, Latvia, Lebanon, Liberia, Libya, Lithuania, Luxembourg, Macao, Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Mauritania, Mauritius, Mexico, Micronesia, Federated States of, Moldova, Mongolia, Montenegro, Montserrat, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherlands, New Zealand, Nicaragua, Niger, Nigeria, North Macedonia, Norway, Oman, Pakistan, Palau, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Republic of the Congo, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Solomon Islands, South Africa, Spain, Sri Lanka, St. Kitts and Nevis, St. Lucia, St. Vincent and The Grenadines, Suriname, Sweden, Switzerland, São Tomé and Príncipe, Taiwan, Tajikistan, Tanzania, Thailand, Tonga, Trinidad and Tobago, Tunisia, Turkmenistan, Turks and Caicos, Türkiye, UAE, Uganda, Ukraine, United Kingdom, United States, Uruguay, Uzbekistan, Vanuatu, Venezuela, Vietnam, Yemen, Zambia, Zimbabwe, "
   }, {
-    "name": "language",
-    "type": "text",
+    "name": "varLanguage",
+    "type": "choices",
     "prompt": "Language",
-    "value": "en-us",
-    "placeholder": "en-us"
+    "value": "en-GB",
+    "choices": "ar, ca, cs, da, de-CH, de-DE, el, en-AU, en-CA, en-GB, en-US, es-ES, es-MX, fi, fr-CA, fr-FR, he, hi, hr, hu, id, it, ja, ko, ms, nb, nl, pl, pt-BR, pt-PT, ro, ru, sk, sv, th, tr, uk, vi, zh-Hans-CN, zh-Hant-HK, zh-Hant-TW"
   }]
 }
