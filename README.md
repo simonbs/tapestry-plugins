@@ -2,10 +2,6 @@
 
 Plugins for the [Tapestry](https://usetapestry.com) by the [Iconfactory](https://iconfactory.com).
 
-### 🔌 Plugins
-
-The repository contains the following plugins.
-
 |Name|Description|
 |-|-|
 |[dev.simonbs.apple.apps.today](https://github.com/simonbs/tapestry-plugins/tree/main/dev.simonbs.apple.apps.today)|Shows stories from the App Store's Today tab.|
@@ -13,7 +9,7 @@ The repository contains the following plugins.
 |[dev.simonbs.slack](https://github.com/simonbs/tapestry-plugins/tree/main/dev.simonbs.slack)|Adds the most recent posts from a specific Slack channel.|
 |[dev.simonbs.youtube](https://github.com/simonbs/tapestry-plugins/tree/main/dev.simonbs.youtube)|Adds recent videos published by YouTube channels you are subscribed to.|
 
-### 🚀 Installation
+## 🚀 Installation
 
 To install a plugin in the Tapestry app:
 
@@ -23,6 +19,6 @@ To install a plugin in the Tapestry app:
 
 For configuration details, refer to the specific plugin's README.
 
-### 📖 Documentation
+## 📖 Documentation
 
 The official documentation for the JavaScript-based API used to build plugins for Tapestry can be found at [TheIconfactory/Tapestry](https://github.com/theiconfactory/tapestry).
