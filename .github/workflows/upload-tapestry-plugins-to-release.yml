@@ -14,10 +14,11 @@ jobs:
       - name: Create Archives
         run: |
           for dir in */; do
-            if [[ ! -f "$dir/plugin-config.json" ]]; then continue; fi
-            dir_name="${dir%/}"
-            output_file="${dir_name}.tapestry"
-            zip -r "$output_file" "$dir_name"
+            if [[ -f "$dir/plugin-config.json" ]]; then
+              dir_name="${dir%/}"
+              output_file="${dir_name}.tapestry"
+              (cd "$dir" && zip -qr "../$output_file" .)
+            fi
           done
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
