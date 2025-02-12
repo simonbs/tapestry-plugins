@@ -1,4 +1,4 @@
-# 🔌 com.slack
+# 🔌 dev.simonbs.slack
 
 Adds the most recent posts from a specific Slack channel.
 

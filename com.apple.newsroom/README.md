@@ -1,4 +1,4 @@
-# 🔌 com.apple.newsroom
+# 🔌 dev.simonbs.apple.newsroom
 
 Adds news from [apple.com/newsroom](https://www.apple.com/newsroom/).
 

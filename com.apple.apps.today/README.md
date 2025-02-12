@@ -1,4 +1,4 @@
-# 🔌 com.apple.apps.today
+# 🔌 dev.simonbs.apple.apps.today
 
 Shows stories from the App Store's Today tab.
 

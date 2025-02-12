@@ -1,8 +1,8 @@
 {
-  "id": "com.slack",
+  "id": "dev.simonbs.slack",
   "display_name": "Slack",
   "default_color": "orange",
-  "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/com.slack/icon.png?raw=true",
+  "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/dev.simonbs.slack/icon.png?raw=true",
   "site": "https://slack.com",
   "site_placeholder": "https://slack.com",
   "item_style": "post",

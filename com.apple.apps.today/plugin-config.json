@@ -1,8 +1,8 @@
 {
-  "id": "com.apple.apps.today",
+  "id": "dev.simonbs.apple.apps.today",
   "display_name": "App Store Today",
   "default_color": "blue",
-  "icon": "https://raw.githubusercontent.com/simonbs/tapestry-plugins/refs/heads/main/com.apple.apps.today/icon.png",
+  "icon": "https://raw.githubusercontent.com/simonbs/tapestry-plugins/refs/heads/main/dev.simonbs.apple.apps.today/icon.png",
   "provides_attachments": true,
   "check_interval": 300,
   "verify_variables": true

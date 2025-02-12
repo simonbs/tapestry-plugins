@@ -1,4 +1,4 @@
-# 🔌 com.youtube
+# 🔌 dev.simonbs.youtube
 
 Adds recent videos published by YouTube channels you are subscribed to.
 
