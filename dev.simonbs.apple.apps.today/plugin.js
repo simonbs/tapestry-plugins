@@ -26,7 +26,9 @@ async function loadAsync() {
     .map(story => {
       const item = Item.createWithUriDate(story.url, story.date)
       item.title = story.title
-      item.body = story.subtitle
+      if (story.subtitle) {
+        item.body = story.subtitle
+      }
       const creator = Identity.createWithName("App Store Editorial")
       creator.uri = "https://apple.com/app-store/"
       creator.avatar = "https://apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
