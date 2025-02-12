@@ -18,7 +18,7 @@ jobs:
           if [[ ! -f "$dir/plugin-config.json" ]]; then continue; fi
             dir_name="${dir%/}"
             output_file="${dir_name}.tapestry"
-            zip -r "$output_file" "$dir_name" -x "*.png"
+            zip -r "$output_file" "$dir_name"
           done
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
