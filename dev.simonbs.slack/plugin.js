@@ -1,7 +1,9 @@
 function verify() {
-  sendRequest(site + "/api/auth.test").then(text => {
-    const response = JSON.parse(text)
-    processVerification({ displayName: response.team })
+  getTeamInfo().then(team => {
+    processVerification({
+      displayName: team.name,
+      icon: team.icon.image_230
+    })
   })
   .catch(processError)
 }
