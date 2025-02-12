@@ -2,6 +2,8 @@ name: Upload Tapestry Plugins
 on:
   release:
     types: [created]
+permissions:
+  contents: write
 jobs:
   upload-plugins:
     name: Upload Tapestry Plugins to Release
