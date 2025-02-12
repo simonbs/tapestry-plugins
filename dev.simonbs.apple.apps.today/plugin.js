@@ -76,6 +76,9 @@ async function getStoriesToday(bearer, storefront, language) {
     }
   }
   return json.results.data.flatMap(day => {
+    if (!day.contents) {
+      return []
+    }
     return day.contents.map(item => {
       const image = getImage(item)
       const video = getVideo(item)
