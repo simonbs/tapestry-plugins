@@ -1,29 +1,22 @@
-# 🔌 dev.simonbs.slack
+**Shows the most recent posts from a specific Slack channel.**
 
-Adds the most recent posts from a specific Slack channel.
+**Important:** Images in messages do not currently load because authentication is required, which Tapestry does not support at this time.
 
-> [!IMPORTANT]
-> Images in messages do not currently load as it requires authentication which Tapestry doesn't support at the time of writing this.
+This plugin requires authentication with your Slack account using an OAuth flow. To perform this flow, you must have a Slack app installed in your workspace. Follow the steps below to create a Slack app and obtain the client ID and client secret needed for authentication:
 
-## Installation
+1. Open [api.slack.com/apps](https://api.slack.com/apps).
+2. Click "Create New App" and select "From scratch".
+3. Enter a name for your app, such as "Tapestry".
+4. Select the workspace where you want to install the app and click "Create App".
+5. Go to "OAuth & Permissions" in the sidebar.
+6. Click "Add New Redirect URL" and set the URL to [https://iconfactory.com/tapestry-oauth](https://iconfactory.com/tapestry-oauth).
+7. Save the changes.
+8. Scroll down to "Scopes".
+9. Under User Token Scopes, add the following scopes: `channels:history`, `channels:read`, and `users.profile:read`.
+10. Go to "Basic Information" in the sidebar.
+11. Expand the "Install your app" section.
+12. Click "Install to Workspace".
+13. Copy the client ID and client secret from "Basic Information".
+14. Enter the client ID and client secret when configuring the connector in Tapestry.
 
-The plugin requires you to authenticate with your Slack account using an OAuth flow.
-In order to perform such a flow, you must have a Slack app installed in your workspace.
-Follow the instructions below to create a Slack app and obtain the client ID and client secret needed to perform the OAuth flow.
-
-1. Open [api.slack.com/apps](https://api.slack.com/apps)
-2. Select "Create New App" followed by "From scratch".
-4. Enter a name for your app, e.g. "Tapestry", and select the workspace to install the app in and then select "Create App".
-5. Add a redirect URL by select "OAuth & Permissions" in the sidebar followed by "Add New Redirect URL", set the URL to [https://iconfactory.com/tapestry-oauth](https://iconfactory.com/tapestry-oauth), and save the changes.
-6. Scroll down to "Scopes" and add the following scopes under "User Token Scopes": `channels:history`, `channels:read`, and `users.profile:read`.
-7. Install the app by selecting "Basic Information" in the sidebar, expand the "Install your app" section, and select "Install to Workspace".
-8. Copy the client ID and client secret under "Basic Information" and enter it into Tapestry.
-
-## Configuration
-
-The plugin can be configured with the following variables.
-
-|Variable|Description|Example|
-|-|-|-|
-|Site|Set this to https://slack.com|https://slack.com|
-|Channels|Comma-separated list of channels from which to fetch posts.|lounge, random, photos|
+When configuring the connector, specify a comma-separated list of channels to fetch posts from (e.g., lounge, random, photos).

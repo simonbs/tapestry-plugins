@@ -1,26 +1,16 @@
-# 🔌 dev.simonbs.youtube
+**Shows recent videos published by YouTube channels you are subscribed to.**
 
-Adds recent videos published by YouTube channels you are subscribed to.
-
-<img src="screenshot.png" width="650" />
-
-## Installation
-
-The plugin requires you to authenticate with your YouTube account using an OAuth flow.
-In order to perform such a flow, you must have a Google Cloud project setup.
-Follow the instructions below to create a Google Cloud app and obtain the client ID and client secret needed to perform the OAuth flow.
+This plugin requires authentication with your YouTube account using an OAuth flow.
+To perform an OAuth flow, you must set up a Google Cloud project. Follow these steps to create a Google Cloud app and obtain the client ID and client secret needed for authentication:
 
 1. Open [console.cloud.google.com/apis](https://console.cloud.google.com/apis) and create a new project.
-2. Once your project is created, select "OAuth consent screen" in the sidebar to configure the consent screen for your app. Select “External” when asked to about the user type. When asked to add test users, add your own email.
-5. Enable the YouTube API in your newly created project by navigating to [console.cloud.google.com/apis/library](https://console.cloud.google.com/apis/library) then select "YouTube Data API v3" and enable it.
-3. Navigate to [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client by selecting "Create credentials" followed by "OAuth client ID". Select "Web application" for the application type and add [https://iconfactory.com/tapestry-oauth](https://iconfactory.com/tapestry-oauth) as a redirect URI.
-4. Copy the client ID and client secret and add it to Tapestry.
-
-## Configuration
-
-The plugin can be configured with the following variables.
-
-|Variable|Description|Example|
-|-|-|-|
-|Site|Set this to https://www.googleapis.com|https://www.googleapis.com|
-|Number of channels|Set this to the number of channels to be added to your feed.|10|
+2. Go to "OAuth consent screen" in the sidebar and configure the consent screen for your app.
+3. Select "External" as the user type.
+4. When prompted to add test users, enter your own email.
+5. Go to [console.cloud.google.com/apis/library](https://console.cloud.google.com/apis/library) and enable the YouTube API for your project.
+6. Select "YouTube Data API v3" and enable it.
+7. Go to [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client.
+8. Click "Create credentials" and select "OAuth client ID".
+9. Select "Web application" as the application type.
+10. Add [https://iconfactory.com/tapestry-oauth](https://iconfactory.com/tapestry-oauth) as a redirect URI.
+11. Copy the client ID and client secret, then add them to the connector in Tapestry.
