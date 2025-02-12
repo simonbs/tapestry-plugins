@@ -15,7 +15,7 @@ jobs:
         run: |
           #!/bin/bash
           for dir in */; do
-          if [[ ! -f "$dir/plugin-config.json" ]]; then continue; fi
+            if [[ ! -f "$dir/plugin-config.json" ]]; then continue; fi
             dir_name="${dir%/}"
             output_file="${dir_name}.tapestry"
             zip -r "$output_file" "$dir_name"
