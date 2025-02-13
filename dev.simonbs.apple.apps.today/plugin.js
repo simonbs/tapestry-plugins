@@ -48,13 +48,17 @@ async function loadAsync() {
       creator.uri = "https://apple.com/app-store/"
       creator.avatar = "https://apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
       item.creator = creator
-      let attachments = []
+      let attachment = null
       if (story.video) {
-        attachments.push(MediaAttachment.createWithUrl(story.video))
+        attachment = MediaAttachment.createWithUrl(story.video)
       } else if (story.image) {
-        attachments.push(MediaAttachment.createWithUrl(story.image))
+        attachment = MediaAttachment.createWithUrl(story.image)
       }
-      item.attachments = attachments
+      if (attachment) {
+        attachment.aspectSize = {width: 353, height: 435}
+        attachment.focalPoint = {x: 0, y: 0}
+        item.attachments = [attachment]
+      }
       return item
     })
 }
