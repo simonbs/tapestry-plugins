@@ -65,7 +65,7 @@ async function loadAsync() {
 
 async function getBearer() {
   const html = await sendRequest(`https://apple.com/app-store/`)
-  const regex = /<meta property="apple-app-token" content="([A-Za-z0-9.-_]+)"\/>/g
+  const regex = /<meta property="apple-app-token" content="([A-Za-z0-9.\-_]+)"\/>/g
   const matches = regex.exec(html)
   if (!matches || matches.length < 2) {
     return null
