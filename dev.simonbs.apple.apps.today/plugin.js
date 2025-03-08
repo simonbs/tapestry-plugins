@@ -49,10 +49,12 @@ async function loadAsync() {
       creator.avatar = "https://apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png"
       item.creator = creator
       let attachment = null
-      if (story.video) {
+      if (story.video && story.video.endsWith(".m3u8")) {
         attachment = MediaAttachment.createWithUrl(story.video)
+        attachment.mimeType = "video"
       } else if (story.image) {
         attachment = MediaAttachment.createWithUrl(story.image)
+        attachment.mimeType = "image"
       }
       if (attachment) {
         attachment.aspectSize = {width: 353, height: 435}
