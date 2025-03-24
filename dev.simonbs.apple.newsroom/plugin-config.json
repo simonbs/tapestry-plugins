@@ -3,6 +3,7 @@
   "display_name": "Apple Newsroom",
   "default_color": "gray",
   "icon": "https://github.com/simonbs/tapestry-plugins/blob/main/dev.simonbs.apple.newsroom/icon.png?raw=true",
+  "site": "https://apple.com/newsroom/rss-feed.rss",
   "provides_attachments": true,
   "check_interval": 300
 }
